@@ -47,7 +47,7 @@ interface User {
 
 // --- Constants ---
 
-const MODEL_NAME = "gemini-3-flash-preview";
+const MODEL_NAME = "gemini-3.1-flash-lite-preview";
 const PROJECTS_KEY = "promptforge_projects";
 const USER_KEY = "promptforge_user";
 
