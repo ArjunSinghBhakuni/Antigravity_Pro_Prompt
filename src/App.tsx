@@ -103,15 +103,14 @@ export default function App() {
 
   // --- Auth Handlers ---
 
-  const handleLogin = () => {
-    // Mock Google Login
-    const mockUser: User = {
-      name: "Arjun Bhakuni",
-      email: "Arjunbhakuni23@gmail.com",
-      picture: "https://api.dicebear.com/7.x/avataaars/svg?seed=Arjun"
+  const handleTryNow = () => {
+    const guestUser: User = {
+      name: "Guest User",
+      email: "guest@example.com",
+      picture: "https://api.dicebear.com/7.x/avataaars/svg?seed=Guest"
     };
-    setUser(mockUser);
-    localStorage.setItem(USER_KEY, JSON.stringify(mockUser));
+    setUser(guestUser);
+    localStorage.setItem(USER_KEY, JSON.stringify(guestUser));
   };
 
   const handleLogout = () => {
@@ -339,13 +338,19 @@ ${project.summary || "None"}
             ))}
           </div>
 
-          <button 
-            onClick={handleLogin}
-            className="flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-white/90 transition-all shadow-xl mx-auto"
-          >
-            <img src="https://www.google.com/favicon.ico" alt="Google" className="w-5 h-5" />
-            Sign in with Google
-          </button>
+          <div className="flex flex-col items-center gap-4">
+            <button 
+              onClick={handleTryNow}
+              className="flex items-center gap-3 bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 text-lg"
+            >
+              Try Now ⚡
+            </button>
+            
+            <div className="flex items-center gap-2 text-text-muted text-xs bg-card/50 px-4 py-2 rounded-lg border border-border">
+              <Clock className="w-3 h-3" />
+              <span>Privacy Note: We don't save anything in our database. All data is stored in your browser's local storage for personal use only.</span>
+            </div>
+          </div>
         </motion.div>
       </div>
     );
